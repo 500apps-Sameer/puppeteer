@@ -16,8 +16,9 @@ await page.goto('https://www.timesjobs.com/candidate/job-search.html?searchType=
 
 const jobListings = await page.evaluate(() => Array.from(document.querySelectorAll('#searchResultData .wht-shd-bx'), (e) => ({
     title: e.querySelector('.clearfix h2').innerText,
-    company: e.querySelector('.company-name a').innerText,
-    location: e.querySelector('.loc a').innerText,
+    company: e.querySelector('.clearfix h3').innerText,
+    location: e.querySelector('.clearfix span').innerText,
+    
 })));
 console.log(jobListings);
 
