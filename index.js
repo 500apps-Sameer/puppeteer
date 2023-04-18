@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const puppeteer = require('puppeteer');
 
 
@@ -24,6 +26,11 @@ const jobListings = await page.evaluate(() => Array.from(document.querySelectorA
 })));
 console.log(jobListings);
 
+
+fs.writeFile('jobListings.json', JSON.stringify(jobListings),(err) =>{
+    if (err) throw err;
+    console.log('File saved');
+});
 
 await browser.close();
 
