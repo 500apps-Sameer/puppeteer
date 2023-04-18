@@ -18,6 +18,8 @@ const jobListings = await page.evaluate(() => Array.from(document.querySelectorA
     title: e.querySelector('.clearfix h2').innerText,
     company: e.querySelector('.clearfix h3').innerText,
     location: e.querySelector('.clearfix span').innerText,
+    job_description: e.querySelector('.clearfix .list-job-dtl li').innerText,
+    skills: e.querySelector('.clearfix .list-job-dtl span').innerText,
     
 })));
 console.log(jobListings);
